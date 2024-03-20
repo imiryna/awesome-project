@@ -1,5 +1,5 @@
 import { useFonts } from "expo-font";
-import { StyleSheet, Text } from "react-native";
+import { Text } from "react-native";
 
 export const Text = () => {
   const [fontsLoaded] = useFonts({
