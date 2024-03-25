@@ -1,7 +1,7 @@
 import { useFonts } from "expo-font";
 import { Text } from "react-native";
 
-export const Text = () => {
+export const Text2 = () => {
   const [fontsLoaded] = useFonts({
     "Inter-Black": require("./assets/fonts/Inter-Black.otf"),
   });
