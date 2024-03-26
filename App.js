@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text, Image, SafeAreaView, FlatList } from "react-native";
-import { Text } from "./src/components/text";
+import { StyleSheet, Text, Image, SafeAreaView, FlatList } from "react-native";
+
 import { useState } from "react";
 import { useFonts } from "expo-font";
 
@@ -27,7 +27,7 @@ export default function App() {
   const [colection, setColection] = useState(COURSES);
 
   const [fontsLoaded] = useFonts({
-    "Inter-Black": require("./assets/fonts/Inter-Black.otf"),
+    "Comic-Sans": require("./src/assets/fonts/ComicSansMS.ttf"),
   });
 
   if (!fontsLoaded) {
@@ -36,13 +36,10 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList data={courses} renderItem={({ item }) => <Text>{item.title}</Text>} keyExtractor={(item) => item.id} />
-      <Text style={{ fontFamily: "Inter-Black", fontSize: 30 }}>React Native</Text>
-      <Text2 />
+      <FlatList data={colection} renderItem={({ item }) => <Text>{item.title}</Text>} keyExtractor={(item) => item.id} />
+      <Text style={{ fontFamily: "Comic-Sans", fontSize: 30 }}>React Native</Text>
+
       <Text style={{ fontSize: 30 }}>Platform Default</Text>
-      <Image source={require("./assets/img/adaptive-icon.png")} />
-      <Image source={{ uri: "https://www.my-rental-homes.com/blog/wp-content/uploads/2019/03/palma-de-mallorca.jpg" }} style={{ width: 400, height: 400 }} />
-      <StatusBar style="auto" />
     </SafeAreaView>
   );
 }

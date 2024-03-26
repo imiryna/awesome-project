@@ -20,5 +20,3 @@ export const Text2 = () => {
     </Text>
   );
 };
-
-// const styles = StyleSheet.create();
