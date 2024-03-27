@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, Image, SafeAreaView, FlatList } from "react-native";
-
+import { StyleSheet, Text, SafeAreaView, FlatList } from "react-native";
 import { useState } from "react";
 import { useFonts } from "expo-font";
+import { RegistrationScreen } from "./src/Screens/RegistrationScreen";
 
 export default function App() {
   const COURSES = [
@@ -38,7 +38,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <FlatList data={colection} renderItem={({ item }) => <Text>{item.title}</Text>} keyExtractor={(item) => item.id} />
       <Text style={{ fontFamily: "Comic-Sans", fontSize: 30 }}>React Native</Text>
-
+      <RegistrationScreen />
       <Text style={{ fontSize: 30 }}>Platform Default</Text>
     </SafeAreaView>
   );
