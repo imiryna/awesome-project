@@ -1,17 +1,25 @@
-import React from "react";
-import { Button, TextInput, Text, View, StyleSheet } from "react-native";
+import { useState } from "react";
+import { Button, TextInput, Text, View, StyleSheet, SafeAreaView } from "react-native";
 import { Formik } from "formik";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export const RegistrationScreen = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-    <>
+    <SafeAreaView>
       <Text>Реєстрація</Text>
       <Formik initialValues={{ email: "" }} onSubmit={(values) => console.log(values)}>
         {({ handleChange, handleBlur, handleSubmit, values }) => (
           <View style={styles.container}>
             <TextInput style={styles.input} placeholder="Login" onChangeText={handleChange} value={values.login}></TextInput>
             <TextInput style={styles.input} placeholder="Email" onChangeText={handleChange("email")} onBlur={handleBlur("email")} value={values.email} />
-            <TextInput style={styles.input} placeholder="Password" onChangeText={handleChange("password")} onBlur={handleBlur("password")} value={values.password} />
+            <TextInput style={styles.input} placeholder="Password" secureTextEntry={!showPassword} onChangeText={handleChange(setPassword)} onBlur={handleBlur("password")} value={values.password} />
+            <MaterialCommunityIcons name={showPassword ? "eye-off" : "eye"} size={24} color="#aaa" style={styles.icon} onPress={toggleShowPassword} />
             <Button style={styles.button} onPress={handleSubmit} title="Sign up" />
           </View>
         )}
@@ -19,7 +27,7 @@ export const RegistrationScreen = () => {
       <View>
         <Text>You've already got account? </Text>
       </View>
-    </>
+    </SafeAreaView>
   );
 };
 
@@ -48,6 +56,9 @@ const styles = StyleSheet.create({
     borderColor: "rgb(232, 232, 232)",
     borderRadius: 8,
     padding: 16,
+  },
+  icon: {
+    marginLeft: 10,
   },
   button: {
     width: 343,
