@@ -1,13 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, SafeAreaView } from "react-native";
-import { useState } from "react";
-import { useFonts } from "expo-font";
+// import { useState } from "react";
+// import { useFonts } from "expo-font";
 import { RegistrationScreen } from "./src/Screens/RegistrationScreen";
+import { LoginScreen } from "./src/Screens/LoginScreen";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <RegistrationScreen />
+      <LoginScreen />
     </SafeAreaView>
   );
 }

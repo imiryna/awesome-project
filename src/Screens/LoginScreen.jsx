@@ -3,7 +3,7 @@ import { Button, TextInput, Text, View, StyleSheet, SafeAreaView } from "react-n
 import { Formik } from "formik";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-export const RegistrationScreen = () => {
+export const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => {
@@ -24,7 +24,7 @@ export const RegistrationScreen = () => {
         )}
       </Formik>
       <View>
-        <Text>You've already got account? </Text>
+        <Text>You've no account yet? Sign up </Text>
       </View>
     </SafeAreaView>
   );
