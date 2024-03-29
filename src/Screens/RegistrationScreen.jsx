@@ -11,10 +11,14 @@ export const RegistrationScreen = () => {
           <View style={styles.container}>
             <TextInput style={styles.input} placeholder="Login" onChangeText={handleChange} value={values.login}></TextInput>
             <TextInput style={styles.input} placeholder="Email" onChangeText={handleChange("email")} onBlur={handleBlur("email")} value={values.email} />
-            <Button onPress={handleSubmit} title="Sign up" />
+            <TextInput style={styles.input} placeholder="Password" onChangeText={handleChange("password")} onBlur={handleBlur("password")} value={values.password} />
+            <Button style={styles.button} onPress={handleSubmit} title="Sign up" />
           </View>
         )}
       </Formik>
+      <View>
+        <Text>You've already got account? </Text>
+      </View>
     </>
   );
 };
@@ -44,5 +48,22 @@ const styles = StyleSheet.create({
     borderColor: "rgb(232, 232, 232)",
     borderRadius: 8,
     padding: 16,
+  },
+  button: {
+    width: 343,
+    height: 51,
+    display: " flex",
+    justifyContent: "flexStart",
+    alignItems: " center",
+    paddingTop: 16,
+    paddingLeft: 32,
+    paddingRight: 16,
+    paddingBottom: 32,
+
+    borderRadius: 100,
+    backgroundColor: "rgb(255, 108, 0)",
+
+    /* sign up */
+    text: { color: "rgb(255, 255, 255)", fontSize: 16, fontWeight: 400, lineHeight: 1.2, letterSpacing: 0.25, textAlign: "center" },
   },
 });
