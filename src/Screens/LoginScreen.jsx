@@ -16,7 +16,6 @@ export const RegistrationScreen = () => {
       <Formik initialValues={{ email: "" }} onSubmit={(values) => console.log(values)}>
         {({ handleChange, handleBlur, handleSubmit, values }) => (
           <View style={styles.container}>
-            <TextInput style={styles.input} placeholder="Login" onChangeText={handleChange} value={values.login}></TextInput>
             <TextInput style={styles.input} placeholder="Email" onChangeText={handleChange("email")} onBlur={handleBlur("email")} value={values.email} />
             <TextInput style={styles.input} placeholder="Password" secureTextEntry={!showPassword} onChangeText={handleChange(setPassword)} onBlur={handleBlur("password")} value={values.password} />
             <MaterialCommunityIcons name={showPassword ? "eye-off" : "eye"} size={24} color="#aaa" style={styles.icon} onPress={toggleShowPassword} />
@@ -25,7 +24,7 @@ export const RegistrationScreen = () => {
         )}
       </Formik>
       <View>
-        <Text>You've already got account? Log in </Text>
+        <Text>You've already got account? </Text>
       </View>
     </SafeAreaView>
   );
