@@ -13,7 +13,7 @@ export const LoginScreen = () => {
   return (
     <SafeAreaView>
       <Text>Реєстрація</Text>
-      <Formik initialValues={{ email: "" }} onSubmit={(values) => console.log(values)}>
+      <Formik initialValues={{ email: "", logo: "", password: "" }} onSubmit={(values) => console.log(values)}>
         {({ handleChange, handleBlur, handleSubmit, values }) => (
           <View style={styles.container}>
             <TextInput style={styles.input} placeholder="Email" onChangeText={handleChange("email")} onBlur={handleBlur("email")} value={values.email} />

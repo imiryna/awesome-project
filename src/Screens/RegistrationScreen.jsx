@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Button, TextInput, Text, View, StyleSheet, SafeAreaView } from "react-native";
 import { Formik } from "formik";
+import { useDispatch } from "react-redux";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export const RegistrationScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const dispatch = useDispatch();
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -18,7 +21,7 @@ export const RegistrationScreen = () => {
           <View style={styles.container}>
             <TextInput style={styles.input} placeholder="Login" onChangeText={handleChange} value={values.login}></TextInput>
             <TextInput style={styles.input} placeholder="Email" onChangeText={handleChange("email")} onBlur={handleBlur("email")} value={values.email} />
-            <TextInput style={styles.input} placeholder="Password" secureTextEntry={!showPassword} onChangeText={handleChange(setPassword)} onBlur={handleBlur("password")} value={values.password} />
+            <TextInput style={styles.input} placeholder="Password" secureTextEntry={!showPassword} onChangeText={handleChange()} onBlur={handleBlur("password")} value={values.password} />
             <MaterialCommunityIcons name={showPassword ? "eye-off" : "eye"} size={24} color="#aaa" style={styles.icon} onPress={toggleShowPassword} />
             <Button style={styles.button} onPress={handleSubmit} title="Sign up" />
           </View>
