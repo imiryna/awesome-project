@@ -1,20 +1,19 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, SafeAreaView } from "react-native";
-// import { useState } from "react";
-// import { useFonts } from "expo-font";
-import { store } from "./src/Redux/store";
+
+import { store, persistor } from "./src/Redux/store";
 import { Provider } from "react-redux";
 import { RegistrationScreen } from "./src/Screens/RegistrationScreen";
 import { LoginScreen } from "./src/Screens/LoginScreen";
-// import {Pers}
+import { PersistGate } from "redux-persist/integration/react";
 
 export default function App() {
   return (
     <Provider store={store}>
       <SafeAreaView style={styles.container}>
-        {/* <PersistGate persistor={persistor}> */}
-        <RegistrationScreen />
-        <LoginScreen />
+        <PersistGate loading={null} persistor={persistor}>
+          <RegistrationScreen />
+          <LoginScreen />
+        </PersistGate>
       </SafeAreaView>
     </Provider>
   );
