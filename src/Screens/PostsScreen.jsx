@@ -1,6 +1,10 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 
 export const PostsScreen = () => {
-  return <SafeAreaView></SafeAreaView>;
+  return (
+    <SafeAreaView>
+      <Text>HELLO WORD!</Text>
+    </SafeAreaView>
+  );
 };
