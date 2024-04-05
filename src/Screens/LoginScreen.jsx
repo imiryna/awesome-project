@@ -1,8 +1,11 @@
 import { useState } from "react";
-       <Image style={styles.tinyLogo} source={require("@expo/snack-static/react-native-logo.png")} />
-import { Button, TextInput, Text, View, Image, StyleSheet, SafeAreaView } from "react-native";
+      
+import { Button, TextInput, Text, View, Image, ImageBackground, StyleSheet, SafeAreaView } from "react-native";
 import { Formik } from "formik";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { url } from "inspector";
+
+const image = {source: 'src/assets/photoBG.png'};
 
 export const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,6 +16,7 @@ export const LoginScreen = () => {
 
   return (
     <SafeAreaView>
+     <ImageBackground source={image} resizeMode="cover" style={styles.image}></ImageBackground>
        <Image style={styles.tinyLogo} source={require("@expo/snack-static/react-native-logo.png")} />
       <Text>Реєстрація</Text>
       <Formik initialValues={{ email: "", password: "" }} onSubmit={(values) => console.log(values)}>
@@ -28,6 +32,7 @@ export const LoginScreen = () => {
       <View>
         <Text>You've no account yet? Sign up </Text>
       </View>
+     
     </SafeAreaView>
   );
 };
@@ -61,6 +66,11 @@ const styles = StyleSheet.create({
   icon: {
     marginLeft: 10,
   },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  
   button: {
     width: 343,
     height: 51,
