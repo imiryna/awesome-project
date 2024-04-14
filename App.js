@@ -9,12 +9,12 @@ import { PersistGate } from "redux-persist/integration/react";
 export default function App() {
   return (
     <Provider store={store}>
-      <SafeAreaView style={styles.container}>
-        <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={null} persistor={persistor}>
+        <SafeAreaView style={styles.container}>
           <RegistrationScreen />
           <LoginScreen />
-        </PersistGate>
-      </SafeAreaView>
+        </SafeAreaView>
+      </PersistGate>
     </Provider>
   );
 }
